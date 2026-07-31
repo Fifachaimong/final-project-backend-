@@ -33,3 +33,8 @@ export const GetMyProfile = asyncHandler(async (req, res) => {
     const result = await GetMyProfileService(req.user.id)
     res.status(200).json(result)
 })
+
+export const GetMyApplicationResult = asyncHandler(async (req, res) => {
+    const result = await GetMyApplicationResultService(req.user.id)
+    res.status(200).json(result)
+})

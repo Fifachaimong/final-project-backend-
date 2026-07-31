@@ -77,3 +77,15 @@ export const GetMyProfileModel = async (id) => {
 
     return result[0]
 }
+
+export const GetMyApplicationResultModel = async (id) => {
+    const [result] = await db.query(`
+        SELECT m.post_id, p.title, m.status, r.ai_score, r.ai_analysis
+        FROM members m
+        JOIN posts p ON p.id = m.post_id
+        JOIN resume r ON r.member_id = m.id
+        WHERE m.user_id = ?
+    `,[ id ])
+
+    return result
+}

@@ -158,3 +158,16 @@ export const GetMyProfileService = async (id) => {
         data : data
     }
 }
+
+export const GetMyApplicationResultService = async (id) => {
+    const data = await GetMyApplicationResultModel(id)
+
+    if (!data) {
+        throw new AppError('No application found for this user', 404)
+    }
+
+    return {
+        message : 'Get my application',
+        data : data
+    }
+}   
