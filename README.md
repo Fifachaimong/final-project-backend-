@@ -7,7 +7,7 @@
 พัฒนาด้วย Node.js และ Express.js โดยออกแบบ Backend ให้มีการแยกส่วนการทำงานเป็น Layer ได้แก่ Routes, Controllers, Services และ Database เพื่อให้แต่ละส่วนมีหน้าที่ชัดเจนและง่ายต่อการพัฒนาต่อ
 
 
-## Features
+# Features
 
 ## Admin
 
@@ -33,6 +33,18 @@
 - สามารถดูประกาศรับสมัครงานที่เปิดรับในระบบ
 - สามารถอัปโหลด Resume เพื่อสมัครงาน
 - สามารถตรวจสอบคะแนนและผลการประเมิน Resume จากระบบ AI
+
+
+# AI Resume Screening
+
+ระบบมีความสามารถในการช่วยวิเคราะห์ Resume ของผู้สมัครงาน เพื่อช่วยให้ HR สามารถประเมินและพิจารณาผู้สมัครได้ง่ายขึ้น
+
+ความสามารถหลัก:
+
+- รับ Resume จาก Applicant
+- วิเคราะห์ข้อมูลจาก Resume
+- ประเมินคะแนน Resume
+- แสดงผลการวิเคราะห์ให้ HR และ Applicant ตรวจสอบ
 
 
 # Tech Stack
@@ -67,6 +79,7 @@
 
 ระบบรองรับการทำงาน 3 ระดับ ได้แก่
 
+
 | Role | Description |
 |---|---|
 | Admin | จัดการข้อมูลผู้ใช้งานและดูแลระบบ |
@@ -78,13 +91,99 @@
 
 ระบบ Backend แบ่งการทำงานออกเป็นส่วนต่าง ๆ เพื่อแยกหน้าที่ของแต่ละส่วน
 
+
 ```text
-src/
-├── controllers/
-├── routes/
-├── services/
-├── models/
-├── middleware/
+final-project-backend/
+
 ├── config/
+│
+├── controller/
+│
+├── routes/
+│
+├── service/
+│
+├── models/
+│
+├── middleware/
+│
+├── schema/
+│
 ├── utils/
-└── lib/
+│
+├── lib/
+│
+└── server.js
+```
+
+
+# Installation
+
+Clone repository
+
+```bash
+git clone <repository-url>
+
+cd final-project-backend
+```
+
+
+Install dependencies
+
+```bash
+npm install
+```
+
+
+# Environment Setup
+
+สร้างไฟล์ `.env` โดยใช้ค่าจาก `.env.example`
+
+
+# Database Setup
+
+1. สร้าง Database ใน MySQL
+2. กำหนดค่าการเชื่อมต่อ Database ในไฟล์ `.env`
+
+
+# Run Project
+
+Development
+
+```bash
+npm run dev
+```
+
+
+Production
+
+```bash
+npm start
+```
+
+
+# Authentication & Security
+
+ระบบมีการจัดการ Authentication และ Security ดังนี้
+
+- JWT ใช้สำหรับ Authentication
+- bcrypt ใช้สำหรับ Hash Password
+- Role-Based Access Control สำหรับจัดการสิทธิ์ของ Admin, HR และ Applicant
+
+
+# Dependencies
+
+Package หลักที่ใช้ในระบบ
+
+- express
+- cors
+- morgan
+- bcrypt
+- jsonwebtoken
+- mysql2
+- dotenv
+
+
+# API Testing
+
+ใช้ Postman สำหรับทดสอบ REST API
