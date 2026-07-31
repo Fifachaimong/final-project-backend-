@@ -1,5 +1,5 @@
 import { GetUserByID } from "../models/auth.js";
-import { CreatePostModel, DeletePostModel, EditPostModel, GetMemberModel, GetProfileByMemberModel } from "../models/hr.js";
+import { CreatePostModel, DeletePostModel, EditPostModel, GetMemberModel, GetMemberResumeResultModel, GetProfileByMemberModel } from "../models/hr.js";
 import AppError from "../utils/AppError.js";
 
 export const CreatePostService = async (id, data) => {
@@ -39,7 +39,7 @@ export const DeletePostService = async (id, title) => {
 
 export const GetMemberService = async (owner_id) => {
     const data = await GetMemberModel(owner_id)
-
+    
     return {
         message : 'Get my member succeed',
         data : data
@@ -50,11 +50,24 @@ export const GetProfileByMemberService = async (member_id, owner_id) => {
     const data = await GetProfileByMemberModel(member_id, owner_id)
     console.log(data)
     if (!data) {
-        throw new AppError('User not found', 404)
+        throw new AppError('Member not found', 404)
     }
 
     return {
         message : 'Get profile member succeed',
+        data : data
+    }
+}
+
+export const GetMemberResumeResultService = async (member_id, owner_id) => {
+    const data = await GetMemberResumeResultModel(member_id, owner_id)
+    
+    if (!data) {
+        throw new AppError('Member not found', 404)
+    }
+
+    return {
+        message : 'Get analysis of members resumes',
         data : data
     }
 }

@@ -56,3 +56,16 @@ export const GetProfileByMemberModel = async(member_id, owner_id) => {
 
     return result[0]
 }
+
+export const GetMemberResumeResultModel = async (member_id, owner_id) => {
+    const [result] = await db.query(`
+        SELECT r.ai_score, r.ai_analysis
+        FROM posts p
+        JOIN members m ON m.post_id = p.id
+        JOIN resume r ON r.member_id = m.id
+        WHERE m.user_id = ? AND p.owner_id = ?
+        `,[member_id, owner_id]
+    )
+
+    return result[0]
+}
