@@ -1,5 +1,5 @@
 import { GetUserByID } from "../models/auth.js";
-import { CreatePostModel, DeletePostModel, EditPostModel, GetMemberModel, GetMemberResumeResultModel, GetProfileByMemberModel } from "../models/hr.js";
+import { CreatePostModel, DeletePostModel, EditPostModel, GetMemberModel, GetMemberResumeResultModel, GetProfileByMemberModel, UpdateCandidateStatusModel } from "../models/hr.js";
 import AppError from "../utils/AppError.js";
 
 export const CreatePostService = async (id, data) => {
@@ -69,5 +69,17 @@ export const GetMemberResumeResultService = async (member_id, owner_id) => {
     return {
         message : 'Get analysis of members resumes',
         data : data
+    }
+}
+
+export const UpdateCandidateStatusService = async (member_status, member_id, owner_id) => {
+    const data = await UpdateCandidateStatusModel(member_status, member_id, owner_id)
+
+    if (data.affectedRows === 0) {
+        throw new AppError('Member not found', 404)
+    }
+
+    return {
+        message : 'Update applicant status'
     }
 }

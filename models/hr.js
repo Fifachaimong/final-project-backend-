@@ -69,3 +69,14 @@ export const GetMemberResumeResultModel = async (member_id, owner_id) => {
 
     return result[0]
 }
+
+export const UpdateCandidateStatusModel = async (member_status, member_id, owner_id) => {
+    const [result] = await db.query(`
+        UPDATE members m
+        JOIN posts p ON p.id = m.post_id
+        SET m.status = COALESCE(?, m.status)
+        WHERE m.user_id = ? AND p.owner_id = ?
+    `,[member_status, member_id, owner_id])
+
+    return result
+}
