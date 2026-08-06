@@ -1,4 +1,4 @@
-const createPostSchema = {
+const createUserSchema = {
     name : {
         type : 'string',
         required : true
@@ -22,7 +22,7 @@ const createPostSchema = {
     }
 }
 
-const editPostSchema = {
+const editUserSchema = {
     name : {
         type : 'string',
         required : false
