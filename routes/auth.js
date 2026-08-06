@@ -102,3 +102,65 @@ export default routes
  *               status: 500
  *               message: "Internal server error."
  */
+
+/**
+ * @swagger
+ * /auth/login:
+ *   post:
+ *     summary: Login
+ *     description: Authenticate user and generate access token.
+ *     tags:
+ *       - auth
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             required:
+ *               - email
+ *               - password
+ *             properties:
+ *               email:
+ *                 type: string
+ *                 description: User email used for login
+ *                 example: "Naruechit@example.com"
+ *               password:
+ *                 type: string
+ *                 description: User password
+ *                 example: "password123"
+ *
+ *     responses:
+ *       200:
+ *         description: Successful login
+ *         content:
+ *           application/json:
+ *             example:
+ *               status: 200
+ *               message: "Login succeed"
+ *               token: "eyJhbGciOiJIUzI1NiIs..."
+ *
+ *       400:
+ *         description: Validation error. The message indicates the invalid field and expected type.
+ *         content:
+ *           application/json:
+ *             example:
+ *               status: 400
+ *               message: "email must be a string"
+ *
+ *       401:
+ *         description: Incorrect email or password
+ *         content:
+ *           application/json:
+ *             example:
+ *               status: 401
+ *               message: "Incorrect email or password."
+ *
+ *       500:
+ *         description: Internal server error
+ *         content:
+ *           application/json:
+ *             example:
+ *               status: 500
+ *               message: "Internal server error."
+ */
