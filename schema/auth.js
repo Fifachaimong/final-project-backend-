@@ -33,4 +33,19 @@ const loginSchema = {
     }
 }
 
-export {registerSchema, loginSchema}
+const editMyProfileSchema = {
+    name : {
+        type : 'string',
+        required : false
+    },
+    lastname : {
+        type : 'string',
+        required : false
+    },
+    phone : {
+        type : 'string',
+        required : false
+    }
+}
+
+export {registerSchema, loginSchema, editMyProfileSchema}
