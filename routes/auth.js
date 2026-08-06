@@ -1,7 +1,6 @@
 import express from "express";
 import { ApplyResume, EditMyProfile, GetMyApplicationResult, GetMyProfile, GetPost, Login, Register } from "../controller/auth.js";
-import schema from "../schema/auth.js";
-import { registerSchema, loginSchema} from "../schema/auth.js";
+import { registerSchema, loginSchema, editMyProfileSchema } from "../schema/auth.js";
 import { ValidateBody } from "../middleware/validate.js";
 import upload from "../middleware/upload.js";
 import authMiddleware from "../middleware/authMiddleware.js";
@@ -10,7 +9,7 @@ const routes = express.Router()
 
 routes.post('/register', ValidateBody(registerSchema), Register)
 routes.post('/login', ValidateBody(loginSchema), Login)
-routes.put('/profile', authMiddleware, EditMyProfile)
+routes.put('/profile', authMiddleware, ValidateBody(editMyProfileSchema), EditMyProfile)
 routes.get('/posts', GetPost)
 routes.get('/profile', authMiddleware, GetMyProfile)
 routes.get('/result', authMiddleware, GetMyApplicationResult)
