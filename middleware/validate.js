@@ -26,7 +26,7 @@ export const ValidateBody = (schema) => {
 
             if (rule.type === 'string') {
                 if (typeof value !== 'string' || !value.trim()) {
-                    return next(new AppError(`${key} must be a letter`, 400))
+                    return next(new AppError(`${key} must be a string`, 400))
                 }
             }
             
