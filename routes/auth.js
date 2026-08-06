@@ -28,3 +28,73 @@ routes.post("/apply/:postId", authMiddleware,
 );
 
 export default routes
+
+/**
+ * @swagger
+ * /auth/register:
+ *   post:
+ *     summary: Register
+ *     description: Create a new user account.
+ *     tags:
+ *       - auth
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             required:
+ *               - name
+ *               - lastname
+ *               - email
+ *               - password
+ *             properties:
+ *               name:
+ *                 type: string
+ *                 description: User first name
+ *                 example: "Naruechit"
+ *               lastname:
+ *                 type: string
+ *                 description: User last name
+ *                 example: "Chaimongkon"
+ *               email:
+ *                 type: string
+ *                 description: User email used for login
+ *                 example: "Naruechit@example.com"
+ *               password:
+ *                 type: string
+ *                 description: User password
+ *                 example: "password123"
+ *     responses:
+ *       201:
+ *         description: Successful register
+ *         content:
+ *           application/json:
+ *             example:
+ *               status: 201
+ *               message: "Register succeed"
+ *
+ *       400:
+ *         description: Validation error. The message indicates the invalid field and expected type.
+ *         content:
+ *           application/json:
+ *             example:
+ *               status: 400
+ *               message: "email must be a string"
+ *
+ *       409:
+ *         description: Email already exists
+ *         content:
+ *           application/json:
+ *             example:
+ *               status: 409
+ *               message: "This email is already in use."
+ *
+ *       500:
+ *         description: Internal server error
+ *         content:
+ *           application/json:
+ *             example:
+ *               status: 500
+ *               message: "Internal server error."
+ */
