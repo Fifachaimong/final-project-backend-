@@ -42,4 +42,4 @@ const editUserSchema = {
     }
 }
 
-export {createPostSchema, editPostSchema}
+export {createUserSchema, editUserSchema}
