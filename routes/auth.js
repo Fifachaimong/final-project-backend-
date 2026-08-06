@@ -65,6 +65,10 @@ export default routes
  *                 type: string
  *                 description: User password
  *                 example: "password123"
+ *               role:
+ *                 type: string
+ *                 description: User role
+ *                 example: "hr"
  *     responses:
  *       201:
  *         description: Successful register
