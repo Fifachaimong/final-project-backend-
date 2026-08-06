@@ -9,11 +9,11 @@ export const CreateUserByAdmin = asyncHandler(async (req, res) => {
 })
 
 export const DeleteUser = asyncHandler(async (req, res) => {
-    const result = await DeleteUserService(req.body.id)
+    const result = await DeleteUserService(req.params.id)
     res.status(200).json(result)
 })
 
 export const EditUser = asyncHandler(async (req, res) => {
-    const result = await EditUserService(req.body)
+    const result = await EditUserService(req.params.id, req.body)
     res.status(200).json(result)
 })
