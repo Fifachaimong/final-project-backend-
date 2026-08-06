@@ -1,4 +1,4 @@
-const schema = {
+const registerSchema = {
     name : {
         type : 'string',
         required : true
@@ -7,11 +7,11 @@ const schema = {
         type : 'string',
         required : true
     },
-    password : {
+    email : {
         type : 'string',
         required : true
     },
-    email : {
+    password : {
         type : 'string',
         required : true
     },
@@ -22,4 +22,15 @@ const schema = {
     }
 }
 
-export default schema
+const loginSchema = {
+    email : {
+        type : 'string',
+        required : true
+    },
+    password : {
+        type : 'string',
+        required : true
+    }
+}
+
+export {registerSchema, loginSchema}
