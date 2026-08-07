@@ -1,8 +1,8 @@
 import db from "../lib/db.js";
 
 export const CreateUser = async(data) => {
-    const { firtname, lastname, email, password, role } = data
-    const [result] = await db.query('INSERT INTO users(firtname, lastname, email, password, role) VALUES(?, ?, ?, ?, ?)', [firtname, lastname, email, password, role])
+    const { firstname, lastname, email, password, role } = data
+    const [result] = await db.query('INSERT INTO users(firstname, lastname, email, password, role) VALUES(?, ?, ?, ?, ?)', [firstname, lastname, email, password, role])
     return result
 }
 
@@ -18,7 +18,7 @@ export const GetUserByID = async(id) => {
 
 export const GetPostModel = async() => {
     const [result] = await db.query(
-        'SELECT posts.title, posts.owner_id, posts.faculty, posts.description, posts.deadline, users.firtname, users.lastname FROM posts JOIN users ON posts.owner_id = users.id'
+        'SELECT posts.title, posts.owner_id, posts.faculty, posts.description, posts.deadline, users.firstname, users.lastname FROM posts JOIN users ON posts.owner_id = users.id'
     )
 
     return result
@@ -57,13 +57,13 @@ export const CreateResume = async (memberId, resumeUrl, transcriptUrl, aiScore, 
 }
 
 export const EditMyProfileModel = async (id, data) => {
-    const { firtname, lastname, phone } = data
+    const { firstname, lastname, phone } = data
     const [result] = await db.query(`
         UPDATE users 
-        SET firtname = COALESCE(?, firtname), lastname = COALESCE(?, lastname), 
+        SET firstname = COALESCE(?, firstname), lastname = COALESCE(?, lastname), 
             phone = COALESCE(?, phone)
         WHERE id = ?
-        `,[ firtname, lastname, phone, id ]
+        `,[ firstname, lastname, phone, id ]
     )
 
     return result
@@ -71,7 +71,7 @@ export const EditMyProfileModel = async (id, data) => {
 
 export const GetMyProfileModel = async (id) => {
     const [result] = await db.query(
-        `SELECT id, firtname, lastname, email, phone FROM users WHERE id = ?`,
+        `SELECT id, firstname, lastname, email, phone FROM users WHERE id = ?`,
         [id]
     )
 
