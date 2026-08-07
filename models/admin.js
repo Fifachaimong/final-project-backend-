@@ -1,8 +1,8 @@
 import db from "../lib/db.js"
 
 export const CreateUserByAdminModel = async(data) => {
-    const { name, lastname, email, password, role } = data
-    const [result] = await db.query('INSERT INTO users(name, lastname, email, password, role) VALUES(?, ?, ?, ?, ?)', [name, lastname, email, password, role])
+    const { firtname, lastname, email, password, role } = data
+    const [result] = await db.query('INSERT INTO users(firtname, lastname, email, password, role) VALUES(?, ?, ?, ?, ?)', [firtname, lastname, email, password, role])
     return result
 }
 
@@ -12,10 +12,10 @@ export const DeleteUserByID = async (id) => {
 }
 
 export const EditUserByIDModel = async (data) => {
-    const { id, name, lastname, password, role } = data
+    const { id, firtname, lastname, password, role } = data
     const [result] = await db.query(
-        'UPDATE users SET name = COALESCE(?, name), lastname = COALESCE(?, lastname), password = COALESCE(?, password), role = COALESCE(?, role) WHERE id = ?',
-        [ name, lastname, password, role, id]
+        'UPDATE users SET firtname = COALESCE(?, firtname), lastname = COALESCE(?, lastname), password = COALESCE(?, password), role = COALESCE(?, role) WHERE id = ?',
+        [ firtname, lastname, password, role, id]
     )
     return result
 }
