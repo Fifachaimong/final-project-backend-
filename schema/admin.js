@@ -1,5 +1,5 @@
 const createUserSchema = {
-    firtname : {
+    firstname : {
         type : 'string',
         required : true
     },
@@ -23,7 +23,7 @@ const createUserSchema = {
 }
 
 const editUserSchema = {
-    firtname : {
+    firstname : {
         type : 'string',
         required : false
     },
