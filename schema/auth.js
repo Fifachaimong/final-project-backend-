@@ -1,5 +1,5 @@
 const registerSchema = {
-    name : {
+    firtname : {
         type : 'string',
         required : true
     },
@@ -34,7 +34,7 @@ const loginSchema = {
 }
 
 const editMyProfileSchema = {
-    name : {
+    firtname : {
         type : 'string',
         required : false
     },
