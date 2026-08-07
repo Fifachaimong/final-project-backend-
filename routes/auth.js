@@ -44,12 +44,12 @@ export default routes
  *           schema:
  *             type: object
  *             required:
- *               - name
+ *               - firtname
  *               - lastname
  *               - email
  *               - password
  *             properties:
- *               name:
+ *               firtname:
  *                 type: string
  *                 description: User first name
  *                 example: "Naruechit"
@@ -182,7 +182,7 @@ export default routes
  *           schema:
  *             type: object
  *             properties:
- *               name:
+ *               firtname:
  *                 type: string
  *                 description: User first name
  *                 example: "Naruechit"
@@ -210,7 +210,7 @@ export default routes
  *           application/json:
  *             example:
  *               status: 400
- *               message: "name must be a string"
+ *               message: "firtname must be a string"
  *
  *       404:
  *         description: User not found
