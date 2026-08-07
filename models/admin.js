@@ -14,7 +14,7 @@ export const DeleteUserByID = async (id) => {
 export const EditUserByIDModel = async (data) => {
     const { id, firstname, lastname, password, role } = data
     const [result] = await db.query(
-        'UPDATE users SET firtname = COALESCE(?, firstname), lastname = COALESCE(?, lastname), password = COALESCE(?, password), role = COALESCE(?, role) WHERE id = ?',
+        'UPDATE users SET firstname = COALESCE(?, firstname), lastname = COALESCE(?, lastname), password = COALESCE(?, password), role = COALESCE(?, role) WHERE id = ?',
         [ firstname, lastname, password, role, id]
     )
     return result
