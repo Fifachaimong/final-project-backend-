@@ -4,7 +4,7 @@ import AppError from "../utils/AppError.js"
 import bcrypt from "bcryptjs"
 
 export const CreateUserByAdminService = async (data) => {
-    const { name, lastname, email, password, role } = data
+    const { firtname, lastname, email, password, role } = data
     const user = await GetUserByEmail(email)
     if (user) {
         throw new AppError('This email is already in use', 409)
@@ -12,7 +12,7 @@ export const CreateUserByAdminService = async (data) => {
 
     const hashpassword = await bcrypt.hash(password, 10)
     const NewData = {
-        name,
+        firtname,
         lastname,
         email,
         password : hashpassword,
@@ -39,7 +39,7 @@ export const DeleteUserService = async (id) => {
 }
 
 export const EditUserService = async (id, data) => {
-    const { name, lastname, role } = data
+    const { firtname, lastname, role } = data
     let { password } = data
     if (password) {
         password = await bcrypt.hash(password, 10)
@@ -47,7 +47,7 @@ export const EditUserService = async (id, data) => {
 
     const NewData = {
         id,
-        name,
+        firtname,
         lastname,
         password,
         role
