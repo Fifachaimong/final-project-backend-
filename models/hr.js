@@ -10,14 +10,14 @@ export const CreatePostModel = async(id, data) => {
     return result
 }
 
-export const EditPostModel = async(data, owner_id) => {
-    const { id, title, faculty, description, deadline } = data
+export const EditPostModel = async(data, owner_id, post_id) => {
+    const { title, faculty, description, deadline } = data
     const [result] = await db.query(`
         UPDATE posts 
         SET title = COALESCE(?, title), faculty = COALESCE(?, faculty), description = COALESCE(?, description), 
             deadline = COALESCE(?, deadline) 
         WHERE id = ? AND owner_id = ?`,
-        [ title, faculty, description, deadline, id, owner_id ]
+        [ title, faculty, description, deadline, post_id, owner_id ]
     )
 
     return result
