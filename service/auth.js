@@ -6,7 +6,7 @@ import { UploadToSupabase } from "../utils/UploadToSupabase.js";
 import axios from "axios"
 
 export const RegisterService = async (data) => {
-    const { firtname, lastname, email, password, role } = data
+    const { firstname, lastname, email, password, role } = data
     const user = await GetUserByEmail(email)
     if (user) {
         throw new AppError('This email is already in use', 409)
@@ -14,7 +14,7 @@ export const RegisterService = async (data) => {
 
     const hashpassword = await bcrypt.hash(password, 10)
     const NewData = {
-        firtname,
+        firstname,
         lastname,
         email,
         password : hashpassword,
