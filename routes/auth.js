@@ -164,3 +164,67 @@ export default routes
  *               status: 500
  *               message: "Internal server error."
  */
+
+/**
+ * @swagger
+ * /auth/profile:
+ *   put:
+ *     summary: Edit profile
+ *     description: Update the authenticated user's profile.
+ *     tags:
+ *       - auth
+ *     security:
+ *       - bearerAuth: []
+ *     requestBody:
+ *       required: false
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               name:
+ *                 type: string
+ *                 description: User first name
+ *                 example: "Naruechit"
+ *               lastname:
+ *                 type: string
+ *                 description: User last name
+ *                 example: "Chaimongkon"
+ *               phone:
+ *                 type: string
+ *                 description: User phone number
+ *                 example: "0990999990"
+ *
+ *     responses:
+ *       200:
+ *         description: Profile updated successfully
+ *         content:
+ *           application/json:
+ *             example:
+ *               status: 200
+ *               message: "Edit my profile succeed"
+ *
+ *       400:
+ *         description: Validation error
+ *         content:
+ *           application/json:
+ *             example:
+ *               status: 400
+ *               message: "name must be a string"
+ *
+ *       404:
+ *         description: User not found
+ *         content:
+ *           application/json:
+ *             example:
+ *               status: 404
+ *               message: "User not found"
+ *
+ *       500:
+ *         description: Internal server error
+ *         content:
+ *           application/json:
+ *             example:
+ *               status: 500
+ *               message: "Internal server error"
+ */
