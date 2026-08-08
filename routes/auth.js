@@ -248,3 +248,49 @@ export default routes
  *             example:
  *               message: "Internal server error"
  */
+
+/**
+ * @swagger
+ * /auth/profile:
+ *   get:
+ *     summary: View My Profile
+ *     description: Display the profile information of the currently authenticated user.
+ *     tags:
+ *       - auth
+ *     security:
+ *       - bearerAuth: []
+ *     responses:
+ *       200:
+ *         description: Successful response with the user's profile information
+ *         content:
+ *           application/json:
+ *             example:
+ *               message: "Get my profile succeed"
+ *               data:
+ *                 id: 7
+ *                 firstname: "์Naruechit"
+ *                 lastname: "Chaimongkon"
+ *                 email: "fifakaijsu@sc"
+ *                 phone: "23"
+ * 
+ *       401:
+ *         description: Unauthorized - Missing or invalid token
+ *         content:
+ *           application/json:
+ *             examples:
+ *               missing_token:
+ *                 summary: Missing token
+ *                 value:
+ *                   message: "Unauthorization"
+ *               invalid_token:
+ *                 summary: Invalid token
+ *                 value:
+ *                   message: "Invalid token"
+ * 
+ *       500:
+ *         description: Server Error
+ *         content:
+ *           application/json:
+ *             example:
+ *               message: "Internal server error"
+ */
