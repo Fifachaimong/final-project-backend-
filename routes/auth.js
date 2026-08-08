@@ -75,7 +75,6 @@ export default routes
  *         content:
  *           application/json:
  *             example:
- *               status: 201
  *               message: "Register succeed"
  *
  *       400:
@@ -83,7 +82,6 @@ export default routes
  *         content:
  *           application/json:
  *             example:
- *               status: 400
  *               message: "email must be a string"
  *
  *       409:
@@ -91,7 +89,6 @@ export default routes
  *         content:
  *           application/json:
  *             example:
- *               status: 409
  *               message: "This email is already in use."
  *
  *       500:
@@ -99,7 +96,6 @@ export default routes
  *         content:
  *           application/json:
  *             example:
- *               status: 500
  *               message: "Internal server error."
  */
 
@@ -136,7 +132,6 @@ export default routes
  *         content:
  *           application/json:
  *             example:
- *               status: 200
  *               message: "Login succeed"
  *               token: "eyJhbGciOiJIUzI1NiIs..."
  *
@@ -145,7 +140,6 @@ export default routes
  *         content:
  *           application/json:
  *             example:
- *               status: 400
  *               message: "email must be a string"
  *
  *       401:
@@ -153,7 +147,6 @@ export default routes
  *         content:
  *           application/json:
  *             example:
- *               status: 401
  *               message: "Incorrect email or password."
  *
  *       500:
@@ -161,7 +154,6 @@ export default routes
  *         content:
  *           application/json:
  *             example:
- *               status: 500
  *               message: "Internal server error."
  */
 
@@ -201,7 +193,6 @@ export default routes
  *         content:
  *           application/json:
  *             example:
- *               status: 200
  *               message: "Edit my profile succeed"
  *
  *       400:
@@ -209,7 +200,6 @@ export default routes
  *         content:
  *           application/json:
  *             example:
- *               status: 400
  *               message: "firstname must be a string"
  *
  *       404:
@@ -217,7 +207,6 @@ export default routes
  *         content:
  *           application/json:
  *             example:
- *               status: 404
  *               message: "User not found"
  *
  *       500:
@@ -225,7 +214,6 @@ export default routes
  *         content:
  *           application/json:
  *             example:
- *               status: 500
  *               message: "Internal server error"
  */
 
