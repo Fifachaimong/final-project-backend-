@@ -228,3 +228,35 @@ export default routes
  *               status: 500
  *               message: "Internal server error"
  */
+
+/**
+ * @swagger
+ * /auth/posts:
+ *   get:
+ *     summary: View All Job Announcements
+ *     description: Display all job announcement posts.
+ *     tags:
+ *       - auth
+ *     responses:
+ *       200:
+ *         description: Successful response with all job announcement posts
+ *         content:
+ *           application/json:
+ *             example:
+ *               message: Get post succeed
+ *               data:
+ *                 - title: "dev"
+ *                   owner_id: 1
+ *                   faculty: "computer"
+ *                   description: "I want to development web"
+ *                   deadline: "2026-07-31T17:00:00.000Z"
+ *                   firstname: "fifa"
+ *                   lastname: "chaimongkon"
+ * 
+ *       500:
+ *         description: Server Error
+ *         content:
+ *           application/json:
+ *             example:
+ *               message: "Internal server error"
+ */
