@@ -67,8 +67,12 @@ export default routes
  *                 example: "password123"
  *               role:
  *                 type: string
- *                 description: User role
- *                 example: "hr"
+ *                 enum:
+ *                   - applicant
+ *                   - hr
+ *                 default: applicant
+ *                 description: User role. Defaults to applicant if not provided.
+ *                 example: "applicant"
  *     responses:
  *       201:
  *         description: Successful register
