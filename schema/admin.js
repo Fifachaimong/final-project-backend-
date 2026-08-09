@@ -16,7 +16,7 @@ const createUserSchema = {
         required : true
     },
     role : {
-        type : ['applicant', 'hr'],
+        type : ['applicant', 'hr', 'admin'],
         required : false,
         default : 'applicant'
     }
@@ -36,7 +36,7 @@ const editUserSchema = {
         required : false
     },
     role : {
-        type : ['applicant', 'hr'],
+        type : ['applicant', 'hr', 'admin'],
         required : false,
         default : 'applicant'
     }
