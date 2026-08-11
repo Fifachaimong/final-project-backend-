@@ -126,3 +126,79 @@ export default routess
  *             example:
  *               message: "Internal server error."
  */
+
+/**
+ * @swagger
+ * /admin/users/{id}:
+ *   put:
+ *     summary: Edit user
+ *     description: Update a user's profile by user ID.
+ *     tags:
+ *       - admin
+ *
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: string
+ *         description: User ID
+ *         example: "1"
+ *
+ *     requestBody:
+ *       required: false
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               firstname:
+ *                 type: string
+ *                 description: User first name
+ *                 example: "Naruechit"
+ *               lastname:
+ *                 type: string
+ *                 description: User last name
+ *                 example: "Chaimongkon"
+ *               password:
+ *                 type: string
+ *                 description: User password
+ *                 example: "12345678"
+ *               role:
+ *                 type: string
+ *                 enum:
+ *                   - applicant
+ *                   - hr
+ *                   - admin
+ *                 description: User role
+ *                 example: "applicant"
+ *
+ *     responses:
+ *       200:
+ *         description: User updated successfully
+ *         content:
+ *           application/json:
+ *             example:
+ *               message: "Edit user succeed"
+ *
+ *       400:
+ *         description: Validation error
+ *         content:
+ *           application/json:
+ *             example:
+ *               message: "firstname must be a string"
+ *
+ *       404:
+ *         description: User not found
+ *         content:
+ *           application/json:
+ *             example:
+ *               message: "User not found"
+ *
+ *       500:
+ *         description: Internal server error
+ *         content:
+ *           application/json:
+ *             example:
+ *               message: "Internal server error"
+ */
