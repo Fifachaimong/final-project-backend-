@@ -87,3 +87,42 @@ export default routess
  *             example:
  *               message: "Internal server error."
  */
+
+/**
+ * @swagger
+ * /admin/users/{id}:
+ *   delete:
+ *     summary: Delete a user
+ *     description: Delete a user account from the system by user ID.
+ *     tags:
+ *       - admin
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: string
+ *         description: User ID
+ *         example: "1"
+ *     responses:
+ *       200:
+ *         description: User deleted successfully
+ *         content:
+ *           application/json:
+ *             example:
+ *               message: "Delete user succeed"
+ *
+ *       404:
+ *         description: User not found
+ *         content:
+ *           application/json:
+ *             example:
+ *               message: "User not found"
+ *
+ *       500:
+ *         description: Internal server error
+ *         content:
+ *           application/json:
+ *             example:
+ *               message: "Internal server error."
+ */
