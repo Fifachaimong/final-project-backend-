@@ -5,15 +5,15 @@ import { ValidateBody } from '../middleware/validate.js'
 
 const routess = express.Router()
 
-routess.post('/create', ValidateBody(createUserSchema), CreateUserByAdmin)
-routess.delete('/delete/:id', DeleteUser)
-routess.put('/edit/:id', ValidateBody(editUserSchema), EditUser)
+routess.post('/users', ValidateBody(createUserSchema), CreateUserByAdmin)
+routess.delete('/users/:id', DeleteUser)
+routess.put('/users/:id', ValidateBody(editUserSchema), EditUser)
 
 export default routess
 
 /**
  * @swagger
- * /admin/create:
+ * /admin/users:
  *   post:
  *     summary: Create a new user
  *     description: Create a new user account and add the user to the system.
