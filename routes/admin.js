@@ -18,7 +18,7 @@ export default routess
  *     summary: Create a new user
  *     description: Create a new user account and add the user to the system.
  *     tags:
- *       - auth
+ *       - admin
  *     requestBody:
  *       required: true
  *       content:
