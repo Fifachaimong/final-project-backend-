@@ -37,8 +37,7 @@ const editUserSchema = {
     },
     role : {
         type : ['applicant', 'hr', 'admin'],
-        required : false,
-        default : 'applicant'
+        required : false
     }
 }
 
