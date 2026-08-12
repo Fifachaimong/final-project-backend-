@@ -35,6 +35,7 @@ export default route
  *               message: "Get my member succeed"
  *               data:
  *                 - Post_id: 6
+ *                   user_id: 6
  *                   user_firstname: "Golf"
  *                   user_lastname: "Matin"
  *                   ai_score: "65.90"
