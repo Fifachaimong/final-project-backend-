@@ -31,7 +31,7 @@ export const DeletePostModel = async(id, title) => {
 
 export const GetMemberModel = async(owner_id) => {
     const [result] = await db.query(`
-        SELECT p.id AS Post_id , u.firstname AS user_firstname, u.lastname AS user_lastname, r.ai_score
+        SELECT p.id AS Post_id , u.id AS user_id, u.firstname AS user_firstname, u.lastname AS user_lastname, r.ai_score
         FROM posts p 
         JOIN members m ON m.post_id = p.id
         JOIN users u ON m.user_id = u.id
