@@ -7,7 +7,7 @@ import { CreatePost, DeletePost, EditPost, GetMember, GetMemberResumeResult, Get
 const route = express.Router()
 
 route.get('/members', authMiddleware, GetMember)
-route.get('/member/profile/:id', authMiddleware, GetProfileByMember)
+route.get('/members/profile/:id', authMiddleware, GetProfileByMember)
 route.get('/members/:id', authMiddleware, GetMemberResumeResult)
 route.post('/posts', authMiddleware, ValidateBody(createPostSchema), CreatePost)
 route.put('/posts/:id', authMiddleware, ValidateBody(editPostSchema), EditPost)
