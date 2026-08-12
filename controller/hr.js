@@ -25,7 +25,7 @@ export const GetMember = asyncHandler(async (req, res) => {
 })
 
 export const GetProfileByMember = asyncHandler(async (req, res) => {
-    const result = await GetProfileByMemberService(req.body.id, req.user.id)
+    const result = await GetProfileByMemberService(req.params.id, req.user.id)
     res.status(200).json(result)
 })
  
