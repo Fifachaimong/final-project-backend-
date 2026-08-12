@@ -60,3 +60,64 @@ export default route
  *             example:
  *               message: "Internal server error"
  */
+
+/**
+ * @swagger
+ * /hr/members/profile/{id}:
+ *   get:
+ *     summary: Get member profile
+ *     description: Retrieve a member profile by user ID.
+ *     tags:
+ *       - hr
+ *     security:
+ *       - bearerAuth: []
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: integer
+ *         description: Member user ID
+ *         example: 6
+ *     responses:
+ *       200:
+ *         description: Member profile retrieved successfully
+ *         content:
+ *           application/json:
+ *             example:
+ *               message: "Get member profile succeed"
+ *               data:
+ *                 user_id: 6
+ *                 user_firstname: "Golf"
+ *                 user_lastname: "Matin"
+ *                 user_email: "Golfy@gmail.com"
+ *                 user_phone: "099999999"
+ *
+ *       401:
+ *         description: Unauthorized - Missing or invalid token
+ *         content:
+ *           application/json:
+ *             examples:
+ *               missing_token:
+ *                 summary: Missing token
+ *                 value:
+ *                   message: "Unauthorization"
+ *               invalid_token:
+ *                 summary: Invalid token
+ *                 value:
+ *                   message: "Invalid token"
+ *
+ *       404:
+ *         description: Member not found
+ *         content:
+ *           application/json:
+ *             example:
+ *               message: "Member not found"
+ *
+ *       500:
+ *         description: Internal server error
+ *         content:
+ *           application/json:
+ *             example:
+ *               message: "Internal server error"
+ */
