@@ -122,3 +122,62 @@ export default route
  *             example:
  *               message: "Internal server error"
  */
+
+/**
+ * @swagger
+ * /hr/members/{id}:
+ *   get:
+ *     summary: Get member resume analysis
+ *     description: Retrieve the AI analysis result of a member's resume.
+ *     tags:
+ *       - hr
+ *     security:
+ *       - bearerAuth: []
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: integer
+ *         description: The ID of the member
+ *         example: 2
+ *
+ *     responses:
+ *       200:
+ *         description: Member resume analysis retrieved successfully
+ *         content:
+ *           application/json:
+ *             example:
+ *               message: "Get analysis of members resumes"
+ *               data:
+ *                 ai_score: "65.90"
+ *                 ai_analysis: "The candidate has strong technical skills and relevant experience for this position."
+ *
+ *       401:
+ *         description: Unauthorized - Missing or invalid token
+ *         content:
+ *           application/json:
+ *             examples:
+ *               missing_token:
+ *                 summary: Missing token
+ *                 value:
+ *                   message: "Unauthorization"
+ *               invalid_token:
+ *                 summary: Invalid token
+ *                 value:
+ *                   message: "Invalid token"
+ *
+ *       404:
+ *         description: Member not found
+ *         content:
+ *           application/json:
+ *             example:
+ *               message: "Member not found"
+ *
+ *       500:
+ *         description: Internal server error
+ *         content:
+ *           application/json:
+ *             example:
+ *               message: "Internal server error"
+ */
