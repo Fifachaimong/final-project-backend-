@@ -181,3 +181,87 @@ export default route
  *             example:
  *               message: "Internal server error"
  */
+
+/**
+ * @swagger
+ * /hr/posts:
+ *   post:
+ *     summary: Create a new post
+ *     description: Create a new post for the authenticated HR user.
+ *     tags:
+ *       - hr
+ *     security:
+ *       - bearerAuth: []
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             required:
+ *               - title
+ *               - faculty
+ *               - description
+ *               - deadline
+ *             properties:
+ *               title:
+ *                 type: string
+ *                 description: Post title
+ *                 example: "รับสมัครนักศึกษาฝึกงาน"
+ *               faculty:
+ *                 type: string
+ *                 description: Faculty related to the post
+ *                 example: "Faculty of Engineering"
+ *               description:
+ *                 type: string
+ *                 description: Post description
+ *                 example: "เปิดรับสมัครนักศึกษาฝึกงานสำหรับภาคเรียนที่ 1"
+ *               deadline:
+ *                 type: string
+ *                 format: date-time
+ *                 description: Application deadline
+ *                 example: "2026-08-01"
+ *
+ *     responses:
+ *       201:
+ *         description: Post created successfully
+ *         content:
+ *           application/json:
+ *             example:
+ *               message: "Create post succeed"
+ *
+ *       400:
+ *         description: Validation error
+ *         content:
+ *           application/json:
+ *             example:
+ *               message: "title must be a string"
+ *
+ *       401:
+ *         description: Unauthorized - Missing or invalid token
+ *         content:
+ *           application/json:
+ *             examples:
+ *               missing_token:
+ *                 summary: Missing token
+ *                 value:
+ *                   message: "Unauthorization"
+ *               invalid_token:
+ *                 summary: Invalid token
+ *                 value:
+ *                   message: "Invalid token"
+ *
+ *       404:
+ *         description: User not found
+ *         content:
+ *           application/json:
+ *             example:
+ *               message: "User not found"
+ *
+ *       500:
+ *         description: Internal server error
+ *         content:
+ *           application/json:
+ *             example:
+ *               message: "Internal server error."
+ */
