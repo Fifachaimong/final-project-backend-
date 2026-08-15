@@ -265,3 +265,91 @@ export default route
  *             example:
  *               message: "Internal server error."
  */
+
+/**
+ * @swagger
+ * /hr/posts/{id}:
+ *   put:
+ *     summary: Edit an existing post
+ *     description: Edit an existing post for the authenticated HR user.
+ *     tags:
+ *       - hr
+ *     security:
+ *       - bearerAuth: []
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: integer
+ *         description: The ID of the post
+ *         example: 2
+ *
+ *     requestBody:
+ *       required: false
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               title:
+ *                 type: string
+ *                 description: Post title
+ *                 example: "รับสมัครนักศึกษาฝึกงาน"
+ *               faculty:
+ *                 type: string
+ *                 description: Faculty related to the post
+ *                 example: "Faculty of Engineering"
+ *               description:
+ *                 type: string
+ *                 description: Post description
+ *                 example: "เปิดรับสมัครนักศึกษาฝึกงานสำหรับภาคเรียนที่ 1"
+ *               deadline:
+ *                 type: string
+ *                 format: date
+ *                 description: Application deadline
+ *                 example: "2026-08-01"
+ *
+ *     responses:
+ *       200:
+ *         description: Post edited successfully
+ *         content:
+ *           application/json:
+ *             example:
+ *               message: "Edit posts succeed"
+ *
+ *       400:
+ *         description: Validation error
+ *         content:
+ *           application/json:
+ *             example:
+ *               message: "title must be a string"
+ *
+ *       401:
+ *         description: Unauthorized - Missing or invalid token
+ *         content:
+ *           application/json:
+ *             examples:
+ *               missing_token:
+ *                 summary: Missing token
+ *                 value:
+ *                   message: "Unauthorization"
+ *               invalid_token:
+ *                 summary: Invalid token
+ *                 value:
+ *                   message: "Invalid token"
+ *
+ *       403:
+ *         description: Forbidden - User does not have permission to edit the post
+ *         content:
+ *           application/json:
+ *             example:
+ *               message: "You do not have permission to edit the post"
+ *
+ *       500:
+ *         description: Internal server error
+ *         content:
+ *           application/json:
+ *             example:
+ *               message: "Internal server error."
+ */
