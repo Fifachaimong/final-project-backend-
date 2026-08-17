@@ -23,8 +23,8 @@ export const EditPostModel = async(data, owner_id, post_id) => {
     return result
 }
 
-export const DeletePostModel = async(id, title) => {
-    const [result] = await db.query('DELETE FROM posts WHERE owner_id = ? AND title = ?', [id, title])
+export const DeletePostModel = async(id, post_id) => {
+    const [result] = await db.query('DELETE FROM posts WHERE owner_id = ? AND id = ?', [id, post_id])
     
     return result
 }

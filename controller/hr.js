@@ -15,7 +15,7 @@ export const EditPost = asyncHandler(async (req, res) => {
 
 export const DeletePost = asyncHandler(async (req, res) => {
     const { title } = req.body
-    const result = await DeletePostService(req.user.id, title)
+    const result = await DeletePostService(req.user.id, req.params.id)
     res.status(200).json(result)
 })
 

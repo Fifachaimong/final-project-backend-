@@ -26,10 +26,10 @@ export const EditPostService = async (data, owner_id, post_id) => {
     }
 }
 
-export const DeletePostService = async (id, title) => {
-    const check = await DeletePostModel(id, title)
+export const DeletePostService = async (id, post_id) => {
+    const check = await DeletePostModel(id, post_id)
     if (check.affectedRows === 0) {
-        throw new AppError('You cannot delete the post.', 403)
+        throw new AppError('Post not found.', 404)
     }
 
     return {

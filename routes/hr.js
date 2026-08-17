@@ -12,7 +12,7 @@ route.get('/members/:id', authMiddleware, GetMemberResumeResult)
 route.post('/posts', authMiddleware, ValidateBody(createPostSchema), CreatePost)
 route.put('/posts/:id', authMiddleware, ValidateBody(editPostSchema), EditPost)
 route.put('/members/:id', authMiddleware, ValidateBody(updateCandidateStatusSchema), UpdateCandidateStatus)
-route.delete('/posts', authMiddleware, DeletePost)
+route.delete('/posts/:id', authMiddleware, DeletePost)
 
 export default route
 
