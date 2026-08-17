@@ -353,3 +353,84 @@ export default route
  *             example:
  *               message: "Internal server error."
  */
+
+/**
+ * @swagger
+ * /hr/members/{id}:
+ *   put:
+ *     summary: Update candidate status
+ *     description: Update the status of a candidate for the authenticated HR user.
+ *     tags:
+ *       - hr
+ *     security:
+ *       - bearerAuth: []
+ *
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: integer
+ *         description: The ID of the candidate member
+ *         example: 2
+ *
+ *     requestBody:
+ *       required: false
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               status:
+ *                 type: string
+ *                 enum:
+ *                   - pending
+ *                   - accepted
+ *                   - rejected
+ *                 default: pending
+ *                 description: Candidate application status
+ *                 example: accepted
+ *
+ *     responses:
+ *       200:
+ *         description: Candidate status updated successfully
+ *         content:
+ *           application/json:
+ *             example:
+ *               message: "Update applicant status"
+ *
+ *       400:
+ *         description: Validation error
+ *         content:
+ *           application/json:
+ *             example:
+ *               message: "status must be a pending,accepted,rejected"
+ *
+ *       401:
+ *         description: Unauthorized - Missing or invalid token
+ *         content:
+ *           application/json:
+ *             examples:
+ *               missing_token:
+ *                 summary: Missing token
+ *                 value:
+ *                   message: "Unauthorization"
+ *               invalid_token:
+ *                 summary: Invalid token
+ *                 value:
+ *                   message: "Invalid token"
+ *
+ *       404:
+ *         description: Candidate not found
+ *         content:
+ *           application/json:
+ *             example:
+ *               message: "Member not found"
+ *
+ *       500:
+ *         description: Internal server error
+ *         content:
+ *           application/json:
+ *             example:
+ *               message: "Internal server error."
+ */
