@@ -434,3 +434,60 @@ export default route
  *             example:
  *               message: "Internal server error."
  */
+
+/**
+ * @swagger
+ * /hr/posts/{id}:
+ *   delete:
+ *     summary: Delete an existing post
+ *     description: Delete a post owned by the authenticated HR user.
+ *     tags:
+ *       - hr
+ *     security:
+ *       - bearerAuth: []
+ *
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: integer
+ *         description: The ID of the post to delete
+ *         example: 2
+ *
+ *     responses:
+ *       200:
+ *         description: Post deleted successfully
+ *         content:
+ *           application/json:
+ *             example:
+ *               message: "Delete post succeed"
+ *
+ *       401:
+ *         description: Unauthorized - Missing or invalid token
+ *         content:
+ *           application/json:
+ *             examples:
+ *               missing_token:
+ *                 summary: Missing token
+ *                 value:
+ *                   message: "Unauthorization"
+ *               invalid_token:
+ *                 summary: Invalid token
+ *                 value:
+ *                   message: "Invalid token"
+ *
+ *       404:
+ *         description: Post not found
+ *         content:
+ *           application/json:
+ *             example:
+ *               message: "Post not found"
+ *
+ *       500:
+ *         description: Internal server error
+ *         content:
+ *           application/json:
+ *             example:
+ *               message: "Internal server error."
+ */
