@@ -339,12 +339,12 @@ export default route
  *                 value:
  *                   message: "Invalid token"
  *
- *       403:
- *         description: Forbidden - User does not have permission to edit the post
+ *       404:
+ *         description: Post not found
  *         content:
  *           application/json:
  *             example:
- *               message: "You do not have permission to edit the post"
+ *               message: "Post not found"
  *
  *       500:
  *         description: Internal server error
