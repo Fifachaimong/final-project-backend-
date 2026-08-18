@@ -18,7 +18,7 @@ export const CreatePostService = async (id, data) => {
 export const EditPostService = async (data, owner_id, post_id) => {
     const check = await EditPostModel(data, owner_id, post_id)
     if (check.affectedRows === 0) {
-        throw new AppError('You do not have permission to edit the post.', 403)
+        throw new AppError('Post not found', 404)
     }
 
     return {
@@ -29,7 +29,7 @@ export const EditPostService = async (data, owner_id, post_id) => {
 export const DeletePostService = async (id, post_id) => {
     const check = await DeletePostModel(id, post_id)
     if (check.affectedRows === 0) {
-        throw new AppError('Post not found.', 404)
+        throw new AppError('Post not found', 404)
     }
 
     return {
