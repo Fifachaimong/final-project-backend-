@@ -39,7 +39,7 @@ export const DeleteUserService = async (id) => {
 }
 
 export const EditUserService = async (id, data) => {
-    const { firstname, lastname, role } = data
+    const { firstname, lastname, phone, role } = data
     let { password } = data
     if (password) {
         password = await bcrypt.hash(password, 10)
@@ -50,6 +50,7 @@ export const EditUserService = async (id, data) => {
         firstname,
         lastname,
         password,
+        phone,
         role
     }
 
