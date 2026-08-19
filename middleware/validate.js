@@ -41,6 +41,14 @@ export const ValidateBody = (schema) => {
                     return next(new AppError(`${key} must be a ${rule.type}`, 400))
                 }
             }
+
+            if (rule.validate) {
+                for (const item of rule.validate) {
+                    if (!item.check(value)) {
+                        return next(new AppError(item.message, 400))
+                    }
+                }
+            }
             
         }
         next()
