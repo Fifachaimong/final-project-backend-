@@ -64,7 +64,7 @@ export default routes
  *               password:
  *                 type: string
  *                 description: User password
- *                 example: "password123"
+ *                 example: "1234567Sk"
  *               role:
  *                 type: string
  *                 enum:
@@ -73,6 +73,7 @@ export default routes
  *                 default: applicant
  *                 description: User role. Defaults to applicant if not provided.
  *                 example: "applicant"
+ * 
  *     responses:
  *       201:
  *         description: Successful register
@@ -128,7 +129,7 @@ export default routes
  *               password:
  *                 type: string
  *                 description: User password
- *                 example: "password123"
+ *                 example: "1234567Sk"
  *
  *     responses:
  *       200:
@@ -189,7 +190,7 @@ export default routes
  *               phone:
  *                 type: string
  *                 description: User phone number
- *                 example: "0990999990"
+ *                 example: "0999999990"
  *
  *     responses:
  *       200:
@@ -205,6 +206,20 @@ export default routes
  *           application/json:
  *             example:
  *               message: "firstname must be a string"
+ * 
+ *       401:
+ *         description: Unauthorized - Missing or invalid token
+ *         content:
+ *           application/json:
+ *             examples:
+ *               missing_token:
+ *                 summary: Missing token
+ *                 value:
+ *                   message: "Unauthorization"
+ *               invalid_token:
+ *                 summary: Invalid token
+ *                 value:
+ *                   message: "Invalid token"
  *
  *       404:
  *         description: User not found
@@ -229,6 +244,7 @@ export default routes
  *     description: Display all job announcement posts.
  *     tags:
  *       - auth
+ * 
  *     responses:
  *       200:
  *         description: Successful response with all job announcement posts
@@ -241,7 +257,7 @@ export default routes
  *                   owner_id: 1
  *                   faculty: "computer"
  *                   description: "I want to development web"
- *                   deadline: "2026-07-31T17:00:00.000Z"
+ *                   deadline: "2026-07-31"
  *                   firstname: "fifa"
  *                   lastname: "chaimongkon"
  * 
@@ -263,6 +279,7 @@ export default routes
  *       - auth
  *     security:
  *       - bearerAuth: []
+ * 
  *     responses:
  *       200:
  *         description: Successful response with the user's profile information
@@ -275,7 +292,7 @@ export default routes
  *                 firstname: "์Naruechit"
  *                 lastname: "Chaimongkon"
  *                 email: "fifakaijsu@sc"
- *                 phone: "23"
+ *                 phone: "0999999990"
  * 
  *       401:
  *         description: Unauthorized - Missing or invalid token
