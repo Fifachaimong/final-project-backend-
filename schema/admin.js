@@ -24,8 +24,7 @@ const createUserSchema = {
         required : true,
         validate : [
             {
-                check : (value) =>
-                    /^[a-zA-Z0-9]{5,20}@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(value),
+                check : (value) => /^[a-zA-Z0-9]{5,20}@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(value),
                 message : 'Please enter a valid email format.'
             }
         ]
@@ -35,10 +34,8 @@ const createUserSchema = {
         required : true,
         validate : [
             {
-                check : (value) =>
-                    /^(?=(?:.*[0-9]){5,})(?=.*[a-z])(?=.*[A-Z]).+$/.test(value),
-                message :
-                    'Password must contain at least 5 numbers, one uppercase letter, and one lowercase letter.'
+                check : (value) => /^(?=(?:.*[0-9]){5,})(?=.*[a-z])(?=.*[A-Z]).+$/.test(value),
+                message : 'Password must contain at least 5 numbers, one uppercase letter, and one lowercase letter.'
             }
         ]
     },
@@ -75,10 +72,8 @@ const editUserSchema = {
         required : false,
         validate : [
             {
-                check : (value) =>
-                    /^(?=(?:.*[0-9]){5,})(?=.*[a-z])(?=.*[A-Z]).+$/.test(value),
-                message :
-                    'Password must contain at least 5 numbers, one uppercase letter, and one lowercase letter.'
+                check : (value) => /^(?=(?:.*[0-9]){5,})(?=.*[a-z])(?=.*[A-Z]).+$/.test(value),
+                message : 'Password must contain at least 5 numbers, one uppercase letter, and one lowercase letter.'
             }
         ]
     },
