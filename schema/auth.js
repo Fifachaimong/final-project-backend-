@@ -4,8 +4,8 @@ const registerSchema = {
         required : true,
         validate : [
             {
-                check : (value) => /^[a-zA-Z]+$/.test(value),
-                message : 'First name must contain only English letters.'
+                check : (value) => /^[a-zA-Zก-๙]+$/.test(value),
+                message : 'First name must contain only Thai or English letters.'
             }
         ]
     },
@@ -14,8 +14,8 @@ const registerSchema = {
         required : true,
         validate : [
             {
-                check : (value) => /^[a-zA-Z]+$/.test(value),
-                message : 'Last name must contain only English letters.'
+                check : (value) => /^[a-zA-Zก-๙]+$/.test(value),
+                message : 'Last name must contain only Thai or English letters.'
             }
         ]
     },
@@ -63,8 +63,8 @@ const editMyProfileSchema = {
         required : false,
         validate : [
             {
-                check : (value) => /^[a-zA-Z]+$/.test(value),
-                message : 'First name must contain only English letters.'
+                check : (value) => /^[a-zA-Zก-๙]+$/.test(value),
+                message : 'First name must contain only Thai or English letters.'
             }
         ]
     },
@@ -73,8 +73,8 @@ const editMyProfileSchema = {
         required : false,
         validate : [
             {
-                check : (value) => /^[a-zA-Z]+$/.test(value),
-                message : 'Last name must contain only English letters.'
+                check : (value) => /^[a-zA-Zก-๙]+$/.test(value),
+                message : 'Last name must contain only Thai or English letters.'
             }
         ]
     },
